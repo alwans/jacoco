@@ -75,6 +75,21 @@ public class MergeTest extends CommandTestBase {
 		assertEquals(new HashSet<String>(Arrays.asList("a", "b", "c")), names);
 	}
 
+	@Test
+	public void test_merge_exec_files() throws Exception {
+
+		File dump = new File(
+				"C:\\Users\\b309c71d-c9a2-48a4-a1d0-6efb29558eac\\dump-1667447309166.exec");
+		File dump2 = new File("C:\\Users\\b309c71d-c9a2-48a4-a1d0-6efb29558eac\\dump.exec");
+		File dest = new File("C:\\Users\\b309c71d-c9a2-48a4-a1d0-6efb29558eac\\merge.exec");
+
+		execute("merge", "--destfile", dest.getAbsolutePath(),
+				dump.getAbsolutePath(), dump2.getAbsolutePath(), "--diffPort",
+				"1995", "--id", "4");
+
+		assertOk();
+	}
+
 	private File createExecFile(String name) throws IOException {
 		File file = new File(tmp.getRoot(), name + ".exec");
 		final FileOutputStream execout = new FileOutputStream(file);

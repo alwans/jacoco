@@ -108,8 +108,8 @@ public class ExecMergeHandler {
 		if (!newExec.getCommitId().equals(oldExec.getCommitId())) {
 			// 先获取code diff
 			List<ClassInfo> classInfoList = getCodeDiff(projectId,
-					newExec.getBranchName(), newExec.getCommitId(),
-					oldExec.getCommitId());
+					newExec.getBranchName(), oldExec.getCommitId(),
+					newExec.getCommitId());
 			/**
 			 * { className: test, diffType: modify | add | delete
 			 * List<MethodInfo> { methodName: A, diffType: modify | add | delete
